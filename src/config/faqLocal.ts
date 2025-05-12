@@ -1,10 +1,11 @@
 // src/config/faqLocal.ts
+import { Button } from "@/types";
 
 export const faqLocalData: Record<
   string,
   {
     response?: string;
-    buttons?: { label: string; action: string; link?: string }[];
+    buttons?: Button[];
   }
 > = {
   "กลับหน้าเริ่มต้น": {

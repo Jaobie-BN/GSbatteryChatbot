@@ -21,7 +21,7 @@ export default function ChatInterface() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
-  const [isBotTyping, setIsBotTyping] = useState(false);
+  const [, setIsBotTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,6 +54,7 @@ export default function ChatInterface() {
     setMessages((prev) => [...prev, { sender: 'user', text: userInput }]);
     setInput('');
     setIsBotTyping(true);
+    setLoading(true);
     setMessages((prev) => [...prev, { sender: 'bot', text: 'กำลังพิมพ์...' }]);
 
     const matched = faqLocalData[userInput];
@@ -66,6 +67,7 @@ export default function ChatInterface() {
           return [...updated, { sender: 'bot', text: matched.response || '', buttons: matched.buttons }];
         });
         setIsBotTyping(false);
+        setLoading(false);
       }, 500);
     } else {
       try {

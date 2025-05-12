@@ -10,7 +10,7 @@ if (!GEMINI_API_KEY) {
 
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
-const faqPath = path.join(process.cwd(), 'src/app/data/faq.json');
+const faqPath = path.join(process.cwd(), 'src/data/faq.json');
 let faqData: any = {};
 
 try {
